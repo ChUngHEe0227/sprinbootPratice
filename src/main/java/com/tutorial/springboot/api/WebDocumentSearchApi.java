@@ -15,7 +15,7 @@ public class WebDocumentSearchApi {
         String clientSecret = "LL2mfKoK9Y"; //애플리케이션 클라이언트 시크릿값"
 
         String[] responseBody = new String[100];
-        String[] Community = {"dcinside","오늘의유머","엠엘비파크","여성시대"};
+        String[] Community = {" dcinside"," 오늘의유머"," 엠엘비파크"," 여성시대"};
 
         Map<String, String> requestHeaders = new HashMap<>();
         requestHeaders.put("X-Naver-Client-Id", clientId);
@@ -30,9 +30,9 @@ public class WebDocumentSearchApi {
     }
 
     private String EncodingUTF8(String Seach_Target,String Community) {
-        String text = Seach_Target + " " + Community;
+        String text = null;
         try {
-            text = URLEncoder.encode(Seach_Target, "UTF-8");
+            text = URLEncoder.encode(Seach_Target+Community, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("검색어 인코딩 실패",e);
         }
