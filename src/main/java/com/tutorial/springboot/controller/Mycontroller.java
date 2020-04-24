@@ -11,14 +11,17 @@ import com.tutorial.springboot.Domain.Newsinformation;
 import com.tutorial.springboot.api.BlogSearchApi;
 import com.tutorial.springboot.api.CafeSearchApi;
 import com.tutorial.springboot.api.NewsSearchApi;
+
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Mycontroller {
-    @RequestMapping("/{Search_Target}")
-    public String index(@PathVariable String Search_Target) {
+
+    @RequestMapping("/Seasch/{Search_Target}")
+    public String testapi(@PathVariable String Search_Target) {
         String string ="";
         BlogSearchApi blogSearchApi = new BlogSearchApi();
         NewsSearchApi newsSearchApi = new NewsSearchApi();
@@ -33,7 +36,12 @@ public class Mycontroller {
         CafeInformation cafeInformation = gson.fromJson(cafeSearchResult, CafeInformation.class);
         BlogInformation blogInformation = gson.fromJson(blogSearchResult, BlogInformation.class);
 
-        return string;
+        return cafeInformation.getTotal().toString();
     }
-
+    @RequestMapping("/news/{Search_Target}")
+    public String newsInfo(@PathVariable String Search_Target) {
+        NewsSearchApi newsSearchApi = new NewsSearchApi();
+        String newsSearchResult = newsSearchApi.Search(Search_Target);
+        return newsSearchResult;
+    }
 }
