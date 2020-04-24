@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>top page</title>
+</head>
+<body>
+<div id = "body-container">
+    <div class = "header">
+        <img id = "title" src = '../ui/header.png' height = '70px' width = '390px'>
+    </div>
+    <div class = "content">
+        <div class = "start">
+            <div class = "subtitle"><p class = "subtitle_text"> 이거 진짜냐? </p>
+             <from method="post" action="/Search/{target}">
+                <input type="text" name="textarea"
+                          height="70px" width = '390px'
+                          minlength="10" maxlength="20" th:value="{Search_target}"></input>
+                <input type="button" id = 'confirm_button' value="Click">확인</input>
+            </div>
+            <div class = "distraction">
+                <div class = "subtitle"><p class = "subtitle_text">검색 결과 </p>
+                    <p th:text="${cafe}"></p> <p th:text="${cafe}"></p> <p th:text="${cafe}"></p>
+            </div>
+                </from>
+        </div>
+    </div>
+    <div class = "footer">
+        <img src = '../ui/cats.png'width = "331.5px" height = "170.5px">
+    </div>
+    <script src = "Yerim.js" >
+        var myapi = document.getElementById("myapi");
+        var String =
+    </script>
+</div>
+</body>
+</html>
